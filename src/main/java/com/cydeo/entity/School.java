@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -15,7 +16,7 @@ public class School extends BaseEntity {
     private List<Student> students;
     private List<Course> courses;
 
-    public School(int id, String name, List<Student> students, List<Course> courses) {
+    public School(UUID id, String name, List<Student> students, List<Course> courses) {
         super(id);
         this.name = name;
         this.students = students;

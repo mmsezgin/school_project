@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -17,7 +18,7 @@ public class Student  extends BaseEntity{
     private Parent parent;
     private List<Course> courses;
 
-    public Student(int id, Long studentNumber, String firstName, String lastName, Parent parent, List<Course> courses) {
+    public Student(UUID id, Long studentNumber, String firstName, String lastName, Parent parent, List<Course> courses) {
         super(id);
         this.studentNumber = studentNumber;
         this.firstName = firstName;

@@ -8,28 +8,29 @@ import com.cydeo.enums.WeekDays;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Database {
 
     public static List<Course> courseList = new ArrayList<>(List.of(
-            new Course(1,"English", 40, List.of(WeekDays.MONDAY, WeekDays.THURSDAY)),
-            new Course(2,"Math",50, List.of(WeekDays.values())),
-            new Course(3,"Java",80, List.of(WeekDays.WEDNESDAY))
+            new Course(UUID.randomUUID(),"English", 40, List.of(WeekDays.MONDAY, WeekDays.THURSDAY)),
+            new Course(UUID.randomUUID(),"Math",50, List.of(WeekDays.values())),
+            new Course(UUID.randomUUID(),"Java",80, List.of(WeekDays.WEDNESDAY))
     ));
 
     public static List<Parent> parentList = new ArrayList<>(List.of(
-            new Parent(1,"John", "Wayne"),
-            new Parent(2,"Mike", "Junior")
+            new Parent(UUID.randomUUID(),"John", "Wayne"),
+            new Parent(UUID.randomUUID(),"Mike", "Junior")
     ));
 
     public static List<Student> studentList = new ArrayList<>(List.of(
-            new Student(1,12345L, "Jayne", "Smith", parentList.get(0), courseList ),
-            new Student(2, 12346L, "Candy", "Brown", parentList.get(1),courseList )
+            new Student(UUID.randomUUID(),12345L, "Jayne", "Smith", parentList.get(0), courseList ),
+            new Student(UUID.randomUUID(), 12346L, "Candy", "Brown", parentList.get(1),courseList )
     ));
 
     public static List<School> schoolList = new ArrayList<>(List.of(
-            new School(1,"ABC_School", studentList,courseList),
-            new School(2,"Java_School", studentList,courseList)
+            new School(UUID.randomUUID(),"ABC_School", studentList,courseList),
+            new School(UUID.randomUUID(),"Java_School", studentList,courseList)
     ));
 
 

@@ -18,6 +18,21 @@ public class SchoolMainRunner {
 
 
     }
+    public  SchoolMainRunner(){}
+/*
+  public Practice(CountryService countryService, DepartmentService departmentService,
+                    EmployeeService employeeService, JobHistoryService jobHistoryService,
+                    JobService jobService, LocationService locationService,
+                    RegionService regionService) {
 
+        Practice.countryService = countryService;
+        Practice.departmentService = departmentService;
+        Practice.employeeService = employeeService;
+        Practice.jobHistoryService = jobHistoryService;
+        Practice.jobService = jobService;
+        Practice.locationService = locationService;
+        Practice.regionService = regionService;
 
+    }
+ */
 }
