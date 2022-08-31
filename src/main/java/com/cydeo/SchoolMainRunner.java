@@ -1,14 +1,4 @@
-package com.gogetters;
-
-import com.gogetters.entity.Course;
-import com.gogetters.entity.Parent;
-import com.gogetters.entity.School;
-import com.gogetters.entity.Student;
-import com.gogetters.service.*;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+package com.cydeo;
 
 public class SchoolMainRunner {
 

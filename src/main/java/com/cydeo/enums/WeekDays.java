@@ -1,4 +1,4 @@
-package com.gogetters.enums;
+package com.cydeo.enums;
 
 public enum WeekDays {
 

@@ -1,10 +1,10 @@
-package com.gogetters.database;
+package com.cydeo.database;
 
-import com.gogetters.entity.Course;
-import com.gogetters.entity.Parent;
-import com.gogetters.entity.School;
-import com.gogetters.entity.Student;
-import com.gogetters.enums.WeekDays;
+import com.cydeo.entity.Course;
+import com.cydeo.entity.Parent;
+import com.cydeo.entity.School;
+import com.cydeo.entity.Student;
+import com.cydeo.enums.WeekDays;
 
 import java.util.ArrayList;
 import java.util.List;

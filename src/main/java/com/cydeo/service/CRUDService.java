@@ -1,4 +1,4 @@
-package com.gogetters.service;
+package com.cydeo.service;
 
 import java.util.List;
 
