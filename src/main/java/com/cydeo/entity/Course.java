@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -16,7 +17,7 @@ public class Course extends BaseEntity{
     private int minScore;
     private List<WeekDays> courseDay;
 
-    public Course(int id, String name, int minScore, List<WeekDays> courseDay) {
+    public Course(UUID id, String name, int minScore, List<WeekDays> courseDay) {
         super(id);
         this.name = name;
         this.minScore = minScore;
