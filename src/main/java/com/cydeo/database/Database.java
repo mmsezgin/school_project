@@ -6,7 +6,9 @@ import com.cydeo.entity.School;
 import com.cydeo.entity.Student;
 import com.cydeo.enums.WeekDays;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,10 +30,10 @@ public class Database {
             new Student(UUID.randomUUID(), 12346L, "Candy", "Brown", parentList.get(1),courseList )
     ));
 
-    public static List<School> schoolList = new ArrayList<>(List.of(
+    public static List<School> schoolList = Arrays.asList(
             new School(UUID.randomUUID(),"ABC_School", studentList,courseList),
             new School(UUID.randomUUID(),"Java_School", studentList,courseList)
-    ));
+    );
 
 
 
