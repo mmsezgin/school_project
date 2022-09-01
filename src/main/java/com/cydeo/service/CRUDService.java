@@ -1,10 +1,11 @@
 package com.cydeo.service;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface CRUDService<T>{
 
-    T findById(int id);
+    T findById(UUID id);
 
     List<T> findAll();
 
