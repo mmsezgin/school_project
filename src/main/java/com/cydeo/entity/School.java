@@ -22,4 +22,8 @@ public class School extends BaseEntity {
         this.students = students;
         this.courses = courses;
     }
+    public School(UUID id, String name){
+        super(id);
+        this.name=name;
+    }
 }

@@ -29,10 +29,11 @@ public class Database {
             new Student(UUID.randomUUID(), 12346L, "Candy", "Brown", parentList.get(1),courseList )
     ));
 
-    public static List<School> schoolList = Arrays.asList(
+    public static  List<School> schoolList = new ArrayList<>(List.of(
             new School(UUID.randomUUID(),"ABC_School", studentList,courseList),
-            new School(UUID.randomUUID(),"Java_School", studentList,courseList)
-    );
+            new School(UUID.randomUUID(),"Java_School", studentList,courseList)));
+
+
 
 
 
