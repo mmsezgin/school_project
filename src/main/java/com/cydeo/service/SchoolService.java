@@ -39,12 +39,11 @@ public class SchoolService implements CRUDService<School> {
 
     }
 
+
+
     @Override
-    public void deleteById(Long id) {
-        for (int i = 0; i < schoolList.size(); i++) {
-            if (schoolList.get(i).getId().toString().equals(id)) {
-                schoolList.remove(i);
-            }
-        }
+    public void deleteById(School school){
+        schoolList.removeIf(p->p.getId().toString().equals(school.getId().toString())) ;
+
     }
 }
