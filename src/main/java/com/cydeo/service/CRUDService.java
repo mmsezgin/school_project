@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public interface CRUDService<T>{
 
-    T findById(UUID id);
+    T findById(int id);
 
     List<T> findAll();
 
@@ -13,6 +13,6 @@ public interface CRUDService<T>{
 
     void update(T t);
 
-    void deleteById(String id);
+    void deleteById(long id);
 
 }

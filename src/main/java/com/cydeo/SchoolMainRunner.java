@@ -33,7 +33,8 @@ public class SchoolMainRunner {
 
 
 
-//User should be able to ADD, UPDATE, and DELETE a school.
+        //User should be able to ADD, UPDATE, and DELETE a school.
+
         System.out.println("Welcome to the school portal");
         Scanner input=new Scanner(System.in);
 
@@ -49,18 +50,21 @@ public class SchoolMainRunner {
                 case 0: //Add/Save
                     System.out.println("Please enter the new School name:");
                     String name= input.next();
-                    School schoolToAdd= new School(UUID.randomUUID(), name);
+                    System.out.println("Please enter the school ID:");
+                    int schoolId= input.nextInt();
+
+                    School schoolToAdd= new School(schoolId, name);
                     schoolService.save(schoolToAdd);
 
-
                     break;
+
                 case 1:// Delete
-                    System.out.println("Please enter the name of the School you would like to delete:");
+                    System.out.println("Please enter the ID of the School you would like to delete:");
                     schoolService.findAll().forEach(p-> System.out.println(p.id+" "+p.getName()));
 
-                    String id= input.next();
+                    int id= input.nextInt();
 
-                    SchoolMainRunner.schoolService.deleteById(id);
+                    schoolService.deleteById(id);
 
                     break;
 

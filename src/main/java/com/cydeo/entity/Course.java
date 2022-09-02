@@ -17,7 +17,7 @@ public class Course extends BaseEntity{
     private int minScore;
     private List<WeekDays> courseDay;
 
-    public Course(UUID id, String name, int minScore, List<WeekDays> courseDay) {
+    public Course(int id, String name, int minScore, List<WeekDays> courseDay) {
         super(id);
         this.name = name;
         this.minScore = minScore;

@@ -11,13 +11,13 @@ import java.util.stream.Collectors;
 
 import static com.cydeo.database.Database.schoolList;
 
-public class SchoolService implements CRUDService<School> {
+public class SchoolService <T> implements CRUDService<School> {
 
 
     @Override
-    public School findById(UUID id) {
+    public School findById(int id) {
         return schoolList.stream()
-                .filter(school -> school.getId().toString().equals(id.toString()))
+                .filter(school -> school.getId()==id)
                 .findAny().get();
     }
 
@@ -36,16 +36,16 @@ public class SchoolService implements CRUDService<School> {
     public void update(School school) {
 
         for (int i = 0; i < schoolList.size(); i++) {
-        if(schoolList.get(i).getId().toString().equals(school.getId().toString())){
+        if(schoolList.get(i).getId()==(school.getId())){
             schoolList.set(i,school);
             }
         }
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(long id) {
         schoolList
-                .removeIf(p->p.getId().toString().equals(id));
+                .removeIf(p->p.getId()==(id));
             }
 
 
