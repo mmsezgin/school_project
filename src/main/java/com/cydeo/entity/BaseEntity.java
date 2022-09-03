@@ -12,5 +12,5 @@ import java.util.UUID;
 @Getter
 @Setter
 public abstract class BaseEntity {
-    public UUID id;
+    public int id;
 }
