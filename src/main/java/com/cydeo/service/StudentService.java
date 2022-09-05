@@ -5,6 +5,7 @@ import com.cydeo.entity.Student;
 
 import javax.management.openmbean.KeyAlreadyExistsException;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class StudentService implements CRUDService<Student> {
@@ -35,7 +36,7 @@ public class StudentService implements CRUDService<Student> {
 
     @Override
     public List<Student> findAll() {
-        return null;
+        return db;
     }
 
     @Override
@@ -48,11 +49,16 @@ public class StudentService implements CRUDService<Student> {
 
     @Override
     public void update(Student student) {
+        db.remove(findById(Math.toIntExact(student.getStudentNumber())));
+        save(student);
+        }
 
-    }
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(long id) {
+        db.removeIf(p->p.getStudentNumber()==id);
+
 
     }
+
 }
