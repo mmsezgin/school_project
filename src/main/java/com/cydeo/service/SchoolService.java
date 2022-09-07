@@ -18,7 +18,7 @@ public class SchoolService <T> implements CRUDService<School> {
     public School findById(int id) {
         return schoolList.stream()
                 .filter(school -> school.getId()==id)
-                .findAny().get();
+                .findAny().get(); //use find first
     }
 
     @Override
@@ -27,8 +27,8 @@ public class SchoolService <T> implements CRUDService<School> {
        return schoolList;
     }
 
-    @Override
-    public void save(School school) {
+
+    public void save(School school){
         schoolList.add(school);
     }
 
@@ -46,7 +46,7 @@ public class SchoolService <T> implements CRUDService<School> {
     public void deleteById(long id) {
         schoolList
                 .removeIf(p->p.getId()==(id));
-            }
+            }// hard delete, should use a soft delete instead
 
 
 
