@@ -4,9 +4,8 @@ import com.cydeo.database.Database;
 import com.cydeo.entity.Student;
 
 import javax.management.openmbean.KeyAlreadyExistsException;
+import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 public class StudentService implements CRUDService<Student> {
 
@@ -18,30 +17,30 @@ public class StudentService implements CRUDService<Student> {
 
     @Override
     public Student findById(int id) {
-        // iterate through each student
-        // check id
-        // if id == id then return student
         return db.stream()
                 .filter(student -> student.getId() == id)
                 .findFirst()
                 .orElse(null);
-
-//        for (Student student : db){
-//          if (student.getId() == id){
-//              return student;
-//          }
-//        }
-//      return null;
     }
 
     @Override
     public List<Student> findAll() {
-        return db;
+        return Collections.unmodifiableList(db);  // avoid giving write access to the db
     }
 
     @Override
     public void save(Student student) {
         if (findById(student.getId()) != null) {
+            System.err.printf("Error: A student with id %d already exists:%n%s%n",
+                    student.getId(),
+                    findById(student.getId()));
+
+            /* the following two print statements are equivalent
+            String name = "Igor";
+            System.out.print("Hello " + name + "\n");
+            System.out.printf("Hello %s%n", name);
+            */
+
             throw new KeyAlreadyExistsException();
         }
         db.add(student);
@@ -49,16 +48,17 @@ public class StudentService implements CRUDService<Student> {
 
     @Override
     public void update(Student student) {
-        db.remove(findById(Math.toIntExact(student.getStudentNumber())));
-        save(student);
+        Student exists = findById(student.getId());
+        if (exists == null) {
+            throw new RuntimeException();
         }
+        db.remove(exists);
+        save(student);
+    }
 
 
     @Override
     public void deleteById(long id) {
-        db.removeIf(p->p.getStudentNumber()==id);
-
-
+        db.removeIf(p -> p.getId() == id);
     }
-
 }
